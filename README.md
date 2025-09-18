@@ -380,3 +380,20 @@ You can also scan the following DingTalk group QR code to join the community gro
 | <img src="image/dingding_funasr.png" width="250"/></div> |
 
 
+
+
+
+
+# Start
+```bash
+docker pull harbor.bwgdi.com/library/sensevoiceasr:0.0.1
+
+docker run -d --restart always -p 5002:5000 --gpus all --mount type=bind,source=/Workspace/NAS11/model/Voice/SenseVoice,target=/models harbor.bwgdi.com/library/sensevoiceasr:0.0.1
+```
+
+# Usage
+```bash
+curl --location 'http://localhost:5002/api/v1/asr' \
+--form 'lang="auto"' \
+--form 'files=@"/home/verachen/Music/voice/2food.wav"'
+```
